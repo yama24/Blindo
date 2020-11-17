@@ -101,9 +101,7 @@
 <div class="search-form">
 	<i class="fa fa-times"></i>
 	<form action="<?= base_url(); ?>search" method="get">
-		<input type="text" placeholder="Cari produk" autocomplete="off" name="q">
-		<!--
-    --><button type="submit">Cari</i></button>
+		<input type="text" placeholder="Cari produk" autocomplete="off" name="q"><button type="submit">Cari</i></button>
 	</form>
 </div>
 <div class="top-nav"></div>
