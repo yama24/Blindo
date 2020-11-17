@@ -150,7 +150,6 @@
 						id="description"
 						name="description"
 						rows="7"
-						required
 					><?= $product['description']; ?></textarea>
 				</div>
 				<button type="submit" class="btn btn-primary">Edit Produk</button>
