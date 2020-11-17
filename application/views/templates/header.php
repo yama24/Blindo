@@ -15,8 +15,6 @@
 	<link rel="stylesheet" type="text/css" href="<?= base_url();  ?>assets/css/<?= $css;  ?>.css">
 	<link rel="stylesheet" type="text/css" href="<?= base_url();  ?>assets/css/<?= $responsive;  ?>.css">
 
-
-
 	<link rel="shortcut icon" href="<?= base_url();  ?>assets/images/logo/favicon.png" type="image/x-icon" />
 
 	<script src="<?= base_url(); ?>assets/js/jquery.min.js"></script>
