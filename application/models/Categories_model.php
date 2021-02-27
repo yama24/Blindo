@@ -62,7 +62,7 @@ class Categories_model extends CI_Model
 		$data = [
 			"name" => $name,
 			"icon" => $file,
-			"slug" => $slugFix3
+			"slug" => $slugFix
 		];
 		$this->db->insert('categories', $data);
 	}

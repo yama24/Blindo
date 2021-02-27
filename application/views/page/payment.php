@@ -9,7 +9,6 @@
 							<th>Jumlah</th>
 							<th>Ket</th>
 							<th>Harga</th>
-							<th>vendor</th>
 						</tr>
 						<?php foreach ($cart->result_array() as $item) : ?>
 							<tr>
@@ -21,7 +20,6 @@
 									<td><?= $item['ket']; ?></td>
 								<?php } ?>
 								<td>Rp<?= number_format($item['price'] * $item['qty'], 0, ",", "."); ?></td>
-								<td><?= $item['vendor_id'] ?></td>
 							</tr>
 						<?php endforeach; ?>
 					</table>
@@ -102,9 +100,8 @@
 					</div>
 				</div>
 				<div class="line mt-4"></div>
-				<?php foreach ($vendor as $v) { ?>
-					<div class="send">
-					<h2 class="title">Metode Pengiriman <?= $item['vendor_id']?></h2>
+				<div class="send">
+					<h2 class="title">Metode Pengiriman</h2>
 					<small class="text-danger" id="paymentTextNotSupportDelivery" style="display: none;">Metode antar belum tersedia untuk tempat Anda.</small>
 					<div class="form-group mt-3" id="groupPaymentSelectKurir">
 						<select name="paymentSelectKurir" id="paymentSelectKurir" class="form-control" required>
@@ -112,7 +109,6 @@
 						</select>
 					</div>
 				</div>
-				<?php } ?>
 			<?php } else { ?>
 				<div class="alert alert-warning">Upss. Kamu belum memiliki satupun belanjaan. Yuk belanja dulu.</div>
 			<?php } ?>

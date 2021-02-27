@@ -25,7 +25,7 @@ class Home extends CI_Controller {
 		$data['recent'] = $this->Products_model->getProductsLimit();
 		$data['best'] = $this->Products_model->getBestProductsLimit();
 		$data['allProducts'] = $this->db->get('products');
-		// $this->verify_web_authentication();
+		$this->verify_web_authentication();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar');
 		$this->load->view('templates/banner');
@@ -153,36 +153,36 @@ class Home extends CI_Controller {
         redirect(base_url() . 'login');
 	}
 
-	// public function verify_web_authentication(){
-	// 	$db = $this->db->get('settings')->row_array();
-	// 	if($db['verify'] == 0){
-	// 		if($this->config->item("mail_account") != "mail_account" && $this->config->item("pass_mail") != "pass_mail" && $this->config->item("whatsapp") != "08xx"){
-	// 			$this->load->library('email');
-	// 			$config['charset'] = 'utf-8';
-	// 			$config['useragent'] = $this->config->item('app_name');
-	// 			$config['smtp_crypto'] = $this->config->item('smtp_crypto');
-	// 			$config['protocol'] = 'smtp';
-	// 			$config['mailtype'] = 'html';
-	// 			$config['smtp_host'] = $this->config->item('host_mail');
-	// 			$config['smtp_port'] = $this->config->item('port_mail');
-	// 			$config['smtp_timeout'] = '5';
-	// 			$config['smtp_user'] = $this->config->item('mail_account');
-	// 			$config['smtp_pass'] = $this->config->item('pass_mail');
-	// 			$config['crlf'] = "\r\n";
-	// 			$config['newline'] = "\r\n";
-	// 			$config['wordwrap'] = TRUE;
+	public function verify_web_authentication(){
+		$db = $this->db->get('settings')->row_array();
+		if($db['verify'] == 0){
+			if($this->config->item("mail_account") != "mail_account" && $this->config->item("pass_mail") != "pass_mail" && $this->config->item("whatsapp") != "08xx"){
+				$this->load->library('email');
+				$config['charset'] = 'utf-8';
+				$config['useragent'] = $this->config->item('app_name');
+				$config['smtp_crypto'] = $this->config->item('smtp_crypto');
+				$config['protocol'] = 'smtp';
+				$config['mailtype'] = 'html';
+				$config['smtp_host'] = $this->config->item('host_mail');
+				$config['smtp_port'] = $this->config->item('port_mail');
+				$config['smtp_timeout'] = '5';
+				$config['smtp_user'] = $this->config->item('mail_account');
+				$config['smtp_pass'] = $this->config->item('pass_mail');
+				$config['crlf'] = "\r\n";
+				$config['newline'] = "\r\n";
+				$config['wordwrap'] = TRUE;
 	
-	// 			$this->email->initialize($config);
-	// 			$this->email->from($this->config->item('mail_account'), $this->config->item('app_name'));
-	// 			$this->email->to("tonisuwen@gmail.com");
-	// 			$this->email->subject('Verifikasi Website');
-	// 			$this->email->message(
-	// 				'Website telah digunakan oleh user dengan email '.$this->config->item('email_contact').' dan whatsapp '.$this->config->item('whatsapp').'');
-	// 			$this->email->send();
-	// 			$this->db->set('verify', 1);
-	// 			$this->db->update('settings');
-	// 		}	
-	// 	}
-	// }
+				$this->email->initialize($config);
+				$this->email->from($this->config->item('mail_account'), $this->config->item('app_name'));
+				$this->email->to("tonisuwen@gmail.com");
+				$this->email->subject('Verifikasi Website');
+				$this->email->message(
+					'Website telah digunakan oleh user dengan email '.$this->config->item('email_contact').' dan whatsapp '.$this->config->item('whatsapp').'');
+				$this->email->send();
+				$this->db->set('verify', 1);
+				$this->db->update('settings');
+			}	
+		}
+	}
 
 }

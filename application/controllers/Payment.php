@@ -38,10 +38,6 @@ class Payment extends CI_Controller
 		$data['title'] = 'Pembayaran - ' . $this->config->item('app_name');
 		$data['css'] = 'payment';
 		$data['cart'] = $this->Order_model->getCartUser();
-		$data['vendor'] = $this->db->select('vendor_id');
-		$data['vendor'] = $this->db->distinct('vendor_id');
-		$data['vendor'] = $this->db->from('cart');
-		$data['vendor'] = $this->db->get();
 		$data['provinces'] = $this->Payment_model->getProvinces();
 		$this->load->view('templates/header', $data);
 		$this->load->view('templates/navbar');

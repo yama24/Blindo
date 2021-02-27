@@ -50,6 +50,16 @@
 }
 
 /* promo */
+div.promo div.bottom {
+	justify-content: start;
+	overflow-x: scroll;
+	width: auto;
+}
+
+div.promo div.bottom div.card {
+	margin: 0 10px;
+}
+
 @media screen and (max-width: 1150px) {
 	div.promo {
 		width: 900px;
